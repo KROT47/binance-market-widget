@@ -1,0 +1,24 @@
+@mixin changeCell {
+  width: 100%;
+  text-align: center;
+
+  &::after {
+    content: "%";
+  }
+}
+
+.negative {
+  @include changeCell;
+
+  color: #ce5464;
+}
+
+.positive {
+  @include changeCell;
+
+  color: #599b7b;
+
+  &::before {
+    content: "+";
+  }
+}

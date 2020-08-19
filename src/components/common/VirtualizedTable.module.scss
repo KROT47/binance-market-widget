@@ -1,0 +1,43 @@
+$arrow-color: gray;
+
+.flexContainer {
+  display: flex;
+  align-items: center;
+}
+
+.tableRow {
+  cursor: pointer;
+}
+.tableCell {
+  flex: 1;
+
+  &:global {
+    &.sortActive {
+      span {
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          right: -15px;
+          top: 50%;
+          width: 0;
+          height: 0;
+          border-left: 5px solid transparent;
+          border-right: 5px solid transparent;
+          border-bottom: 6px solid $arrow-color;
+          transform: translate(0, -50%);
+        }
+      }
+    }
+
+    &.sortDesc {
+      span {
+        &::after {
+          border-bottom: none;
+          border-top: 6px solid $arrow-color;
+        }
+      }
+    }
+  }
+}
